@@ -1,6 +1,13 @@
-wx-progress
+<wx-progress/>
 ===========
 
 progress custom element
 
-bower install
+
+**Dev:  **
+
+`bower install`
+
+**Demo:  **
+
+[link](https://p-wxiao.rhcloud.com/myelements/index.html)
