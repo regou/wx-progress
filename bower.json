@@ -1,0 +1,23 @@
+{
+  "name": "wx-progress",
+  "version": "0.1.0",
+  "homepage": "https://github.com/regou/wx-progress",
+  "authors": [
+    "wangxiao <wangxiao@zhihuiya.com>"
+  ],
+  "description": "progress ele",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4"
+  }
+}

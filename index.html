@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>进度条元素</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="elements/wx-progress.html">
+
+    <style>
+        .inner{
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+        .wraper{
+            padding: 10em 0;
+        }
+        .comments{
+            text-align: center;
+        }
+        code{
+            background-color: rgb(233, 233, 233);
+            color: #0086B3;
+            padding: 1px 0.5em;
+            border: 1px solid lightgrey;
+            border-radius: 0.3em;
+        }
+        #pgs{
+            height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="wraper inner">
+    <wx-progress id="pgs" value="45" max="100"></wx-progress>
+</div>
+
+<div class="comments inner">
+    <p>这里是个进度条，试着用debugger去修改它的<code>value</code> 和 <code>max</code> 属性;</p>
+    <p>或者用js去修改 <code>document.getElementById('pgs').value</code></p>
+
+    <p>更甚者，你可以尝试修改它的<code>width</code> <code>height</code>等样式</p>
+</div>
+
+
+
+
+
+</body>
+</html>

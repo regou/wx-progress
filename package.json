@@ -1,0 +1,23 @@
+{
+  "name": "wx-progress",
+  "version": "0.1.0",
+  "description": "my progress custom element",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/regou/wx-progress.git"
+  },
+  "keywords": [
+    "WebComponent",
+    "Polymer"
+  ],
+  "author": "admin@regou.me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/regou/wx-progress/issues"
+  },
+  "homepage": "https://p-wxiao.rhcloud.com/myelements/index.html",
+  "devDependencies": {
+    "bower": "^1.3.8"
+  }
+}
