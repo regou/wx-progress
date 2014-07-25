@@ -8,13 +8,15 @@
                 height: 1em;
             }
             @-webkit-keyframes animate-stripes {
-                100% { background-position: -100px 0px; }
+                0% { background-position: 0 50%; }
+                100% { background-position: -100px 50%; }
             }
             @keyframes animate-stripes {
-                100% { background-position: -100px 0px; }
+                0% { background-position: 0 50%; }
+                100% { background-position: -100px 50%; }
             }
 
-            .progress-wrap{text-align: center;height: 100%;}
+            .progress-wrap{text-align: center;height: 100%;position: relative;}
             .progress-bar {
                 border-radius: 2px;
                 background-color: whiteSmoke;
@@ -26,7 +28,7 @@
                 display: inline-block;
             }
 
-            .progress-bar span {
+            .progress-bar .striper {
                 border-radius: 2px;
                 height: 100%;
                 display: block;
@@ -39,15 +41,52 @@
                 background-image:-webkit-linear-gradient(-45deg,transparent 33%, rgba(0, 0, 0, .1) 33%,rgba(0,0, 0, .1) 66%, transparent 66%),-webkit-linear-gradient(top,rgba(255, 255, 255, .25),rgba(0, 0, 0, .25)),-webkit-linear-gradient(left, #FCFEFC, #FCFEFC);
                 background-image:-moz-linear-gradient(-45deg,transparent 33%, rgba(0, 0, 0, .1) 33%,rgba(0,0, 0, .1) 66%, transparent 66%),-moz-linear-gradient(to bottom,rgba(255, 255, 255, .25),rgba(0, 0, 0, .25)),-moz-linear-gradient(to right, #FCFEFC, #FCFEFC);
                 background-image:linear-gradient(-45deg,transparent 33%, rgba(0, 0, 0, .1) 33%,rgba(0,0, 0, .1) 66%, transparent 66%),linear-gradient(to bottom,rgba(255, 255, 255, .25),rgba(0, 0, 0, .25)),linear-gradient(to right, #FCFEFC, #FCFEFC);
-                background-size: 2.5em 100%, 100% 100%, 100% 100%;
+                background-size: 5em 100%, 100% 100%, 100% 100%;
                 -webkit-animation: animate-stripes 5s linear infinite;
                 animation: animate-stripes 5s linear infinite;
             }
 
+            .flex-center{
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            .prog-msg{
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                color: gray;
+            }
+            .progress-wrap:hover .prog-msg{
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+            }
+
         </style>
 
-        <div class="progress-wrap">
+        <div id="progress-wrap" class="progress-wrap">
             <div class="progress-bar">
+                <div class="flex-center prog-msg">
+                    <span>{{percent}}</span>
+                </div>
+
                 <span id="striper" class="striper"> </span>
             </div>
         </div>
@@ -58,26 +97,34 @@
     <script>
 
         ;(function(){
-
             var getPercent = function(val,total){
                 var res = null;
                 if(total>0){
                     var iPlus = val + 0;
                     if(iPlus>=total){
-                        res = "100%";
+                        res = "100";
                     }else{
-                        res = ((iPlus / total) * 100)+"%";
+                        res = ((iPlus / total) * 100);
                     }
                 }else{
                     return 0;
                 }
-                return res;
+                return res.toFixed(2)+"%";
             };
 
             var setProg = function(){
                 var percent = getPercent(this.value,this.max);
+                this.percent = percent || "0%";
                 var strEle = this.$['striper'];
                 strEle.style.width = percent || 0;
+            };
+
+            var setinitHeight = function(eleObj){
+                var strEle = eleObj.$['striper'];
+                if(strEle.offsetHeight >= 10){
+                    var h = strEle.offsetHeight*2 + "px";
+                    strEle.style.backgroundSize = h + " 100%";
+                }
             };
 
             //"'this' point to element itself
@@ -90,6 +137,7 @@
                 ready: function() {
                     // initialize the element's model
                     this.setProg();
+                    setinitHeight(this);
                 },
                 valueChanged: function(oldValue, newValue) {
                     this.setProg();

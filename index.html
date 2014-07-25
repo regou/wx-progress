@@ -27,9 +27,20 @@
             border: 1px solid lightgrey;
             border-radius: 0.3em;
         }
+        #tag{
+            font-weight: bold;
+            font-family: "Helvetica","Georgia",Arial;
+        }
         #pgs{
             height: 1.5em;
         }
+
+        #pgs2{
+            height: 3em;width: 40vw;
+        }
+
+        #pgs,#pgs2{margin: 1em 0;}
+
     </style>
 </head>
 <body>
@@ -37,10 +48,12 @@
 
 <div class="wraper inner">
     <wx-progress id="pgs" value="45" max="100"></wx-progress>
+
+    <wx-progress id="pgs2" value="8" max="10"></wx-progress>
 </div>
 
 <div class="comments inner">
-    <code>&lt;wx-progress&gt; &lt;/wx-progress&gt;</code>
+    <code id="tag">&lt;wx-progress&gt; &lt;/wx-progress&gt;</code>
     <p>这里是个进度条，试着用debugger去修改它的<code>value</code> 和 <code>max</code> 属性;</p>
     <p>或者用js去修改 <code>document.getElementById('pgs').value</code></p>
 
