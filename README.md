@@ -4,10 +4,10 @@
 progress custom element
 
 
-**Dev:  **
+**Dev:**
 
 `bower install`
 
-**Demo:  **
 
-[link](https://p-wxiao.rhcloud.com/myelements/index.html)
+
+[**Demo:**](https://p-wxiao.rhcloud.com/myelements/index.html)
