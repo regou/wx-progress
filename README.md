@@ -10,4 +10,4 @@ progress custom element
 
 
 
-[**Demo:**](https://p-wxiao.rhcloud.com/myelements/index.html)
+[**Live Demo**](https://p-wxiao.rhcloud.com/myelements/index.html)
