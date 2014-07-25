@@ -48,7 +48,7 @@
 
         <div class="progress-wrap">
             <div class="progress-bar">
-                <span class="striper" style="width: {{percent}}"> </span>
+                <span id="striper" class="striper"> </span>
             </div>
         </div>
 
@@ -75,7 +75,9 @@
             };
 
             var setProg = function(){
-                this.percent = getPercent(this.value,this.max);
+                var percent = getPercent(this.value,this.max);
+                var strEle = this.$['striper'];
+                strEle.style.width = percent || 0;
             };
 
             //"'this' point to element itself
@@ -97,6 +99,7 @@
                 },
                 attributeChanged: function(attrName, oldVal, newVal) {
                     //var newVal = this.getAttribute(attrName);
+                    console.log(arguments);
                     this.setProg();
                 }
             };
